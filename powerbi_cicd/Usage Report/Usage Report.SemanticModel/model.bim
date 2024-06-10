@@ -1,0 +1,376 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.128.952.0 (24.04)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Usage\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "b0dcb754-5891-4b3f-af64-67d85b5f77f9",
+        "fromColumn": "Date",
+        "fromTable": "Usage",
+        "toColumn": "Date",
+        "toTable": "Calendar"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Usage",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "17bca60c-0b86-4e3e-9bbb-af935a0b8e92",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DistributionMethod",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0137c220-2a55-4a9a-9983-4683c727df8f",
+            "sourceColumn": "DistributionMethod",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReportPage",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "76f29c8f-5cc0-4040-a6d6-d8ffc3f56f59",
+            "sourceColumn": "ReportPage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Platform",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3e481182-d7d2-4efb-8d61-3524dfd17a60",
+            "sourceColumn": "Platform",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Full Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7dc7303f-0b92-47e9-a026-387f53748360",
+            "sourceColumn": "Full Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DisplayName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bbeeed06-afe6-44b1-bb4e-a00c1b5721c3",
+            "sourceColumn": "DisplayName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Views",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d17d6769-40cf-4e51-8b26-b1afb2d440c0",
+            "sourceColumn": "Views",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "d5748819-181f-4669-9017-061ecdebba79",
+        "partitions": [
+          {
+            "name": "Usage-90228b82-f9bf-4c17-89f3-d5f99addb3b1",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"E:\\OneDrive - SDInnovation\\Book\\Chapter 05\\Files Chapter 05\\Views by user.xlsx\"), null, true),",
+                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Date\", type date}, {\"DistributionMethod\", type text}, {\"ReportPage\", type text}, {\"Platform\", type text}, {\"Full Name\", type text}, {\"DisplayName\", type text}, {\"Views\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Measures",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "c710a70284844346b4107a72663ce4cd"
+          }
+        ],
+        "columns": [
+          {
+            "name": "A",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "cfaff348-3cbe-45dd-92c3-03c109909c64",
+            "sourceColumn": "[A]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "5ae48670-830b-41ae-b15e-99c35ec0cd60",
+        "measures": [
+          {
+            "name": "Total Views",
+            "expression": "sum(Usage[Views])",
+            "formatString": "0",
+            "lineageTag": "2c68a674-47a1-443a-b760-e89648c623bf"
+          },
+          {
+            "name": "Total Users",
+            "expression": "COUNTROWS( VALUES( Usage[Full Name] ) )",
+            "formatString": "0",
+            "lineageTag": "6d3b683c-4367-4dd7-83d9-5ac30c0e47c2"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measures-cae6202b-a7e2-4201-a999-238fd72d5722",
+            "mode": "import",
+            "source": {
+              "expression": "DATATABLE( \"A\", STRING, {{\"\"}} )",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Calendar",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "1a33d9a8ee904c76aa7d353ffbafc00f"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "b5d687db-7a7e-48d4-ad11-81fe1c316f19",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Calendar Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d8ecd9b9-2e53-4b10-b9f6-87ebe42a0cfb",
+            "sourceColumn": "[Calendar Year]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Month_Display1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "26129338-7246-4259-8d60-cfb307d2d2e3",
+            "sortByColumn": "YearMonthInt",
+            "sourceColumn": "[Month_Display1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Month_Display2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "7e04eb1e-f688-49cb-9e04-89854fadc281",
+            "sourceColumn": "[Month_Display2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "YearMonthInt",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "0850e30b-94c1-4ca5-8533-70dc509473f3",
+            "sourceColumn": "[YearMonthInt]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Week_Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "ae8e74f9-90f4-4ea6-ad0d-0dcd608754fb",
+            "sourceColumn": "[Week_Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "21042f94-571e-4d09-a250-a2d935468b1f",
+        "partitions": [
+          {
+            "name": "Calendar-896f98a7-8cc9-41ae-a09b-65f9e9d99aa9",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "ADDCOLUMNS(",
+                "    FILTER(",
+                "        CALENDARAUTO(),",
+                "        [Date] >= DATE( 2020, 1, 1 ) && [Date] <= DATE( 2022, 12, 31 )",
+                "    ),",
+                "    \"Calendar Year\", YEAR( [Date] ),",
+                "    \"Week_Date\", WEEKNUM( [Date] ),",
+                "    \"Month_Display1\", FORMAT( [Date], \"mmm-yy\" ),",
+                "    \"Month_Display2\", FORMAT( [Date], \"mmm/yyyy\" ),",
+                "    \"YearMonthInt\", FORMAT( [Date], \"YYYYMM\" )",
+                ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
